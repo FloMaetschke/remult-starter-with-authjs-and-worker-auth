@@ -1,8 +1,10 @@
 # ABOUT
 
-This is project generated with `npm init remult@latest`,using Angular, Auth.js and demo content. A Worker and a custom api has been added to demonstrate authentication using node-fetch from within a sample worker process.
+This is project generated with `npm init remult@latest`, using Angular, Auth.js and demo content. A Worker and a custom api has been added to demonstrate authentication using node-fetch from within a sample worker process.
 
-
+Use `npm run dev-node` to start the node server with remult in watch mode.
+Use `npm run dev-worker` to start the worker in watch mode.
+Use `npm run dev` to start the angular app (not focused in this example).
 
 
 # ⚡️ remult-starter-with-authjs-and-worker-auth ⚡️
