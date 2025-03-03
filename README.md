@@ -1,3 +1,10 @@
+# ABOUT
+
+This is project generated with `npm init remult@latest`,using Angular, Auth.js and demo content. A Worker and a custom api has been added to demonstrate authentication using node-fetch from within a sample worker process.
+
+
+
+
 # ⚡️ remult-starter-with-authjs-and-worker-auth ⚡️
 
 Everything you need to build a great `remult` project, powered by [`create-remult`](https://github.com/remult/remult/tree/main/projects/create-remult).
