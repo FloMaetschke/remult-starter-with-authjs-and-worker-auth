@@ -87,6 +87,28 @@ export type { ProviderType }; // Export ProviderType for use in `User.providerTy
 export async function getUserFromRequest(
   req: Request,
 ): Promise<UserInfo | undefined> {
+  if (req.headers['my-worker-token']) {
+    const value = req.headers['my-worker-token'] as string
+    const [name, password] = value.split('___')
+
+    const tokenUser = await repo(User).findFirst({
+      name,
+      providerType: 'credentials',
+    })
+    console.log(`tokenUser`, tokenUser)
+
+
+    if (tokenUser && bcrypt.compareSync(password, tokenUser.password)) {
+      return {
+        id: tokenUser.id,
+        name: tokenUser.name,
+        roles: tokenUser.admin ? [Roles.admin] : [],
+      }
+    }
+
+    return undefined
+  }
+
   const session = await getSession(req, authConfig); // Get the session from the request
   if (!session?.user?.id) return undefined; // If no session or user ID, return undefined
   const user = await repo(User).findId(session.user.id); // Find the user in the database by their session ID
